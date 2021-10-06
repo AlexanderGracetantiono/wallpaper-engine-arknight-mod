@@ -14,7 +14,7 @@
 
 <style>
 body {
-	background-image : url('myimgs/4.png');
+	background-image : url('myimgs/background/bg_1.png');
 	background-repeat : no-repeat;
 	background-size : cover;
 	overflow : hidden;
@@ -49,8 +49,8 @@ body {
 }
 
 .opbg1 {
-	width : cover;
-	height : cover;
+	width : 1920px;
+	height : 1080px;
 	opacity : 0;
 }
 
@@ -160,6 +160,7 @@ body {
 	left : 435px;
 	width : 100px;
 	height : 89px;
+	z-index : 12;
 }
 
 .img10 {
@@ -172,6 +173,7 @@ body {
 	left : 545px;
 	width : 96px;
 	height : 87px;
+	z-index : 12;
 }
 
 .img11 {
@@ -183,19 +185,29 @@ body {
 	top : 876px;
 	left : 436px;
 	transition : 0.3s;
+	z-index : 12;
 }
 
 .img13 {
 	position : absolute;
 	top : 85px;
 	left : 41px;
+	z-index : 12;
 }
-
+.characters-image{
+	position : absolute;
+	top : 200px;
+	left : 10px;
+	width: 60%;
+	height: auto;
+	resize: both;
+	z-index : 0;
+}
 .img14 {
 	position : absolute;
 	top : 450px;
 	left : 120px;
-	z-index : 10;
+	z-index : 12;
 }
 
 .img15 {
@@ -402,12 +414,30 @@ p[class^=date] {
 	opacity : 0.8;
 }
 
-.back1 {
+.background-fixed {
 	position : fixed;
 	width : 400px;
 	height : 225px;
 	top : 270px;
 	left : 260px;
+	opacity : 0.7;
+}
+
+.characters1 {
+	position : fixed;
+	width : 180px;
+	height : 180px;
+	top : 270px;
+	left : 260px;
+	opacity : 0.7;
+}
+
+.characters2 {
+	position : fixed;
+	width : 180px;
+	height : 180px;
+	top : 270px;
+	left : 450px;
 	opacity : 0.7;
 }
 
@@ -566,6 +596,9 @@ $(document).ready(function(){
 <script>
 $(document).ready(function(){
 
+	$('.characters-image-div').delay(10200).animate({
+		'opacity' : '1'
+	}, 500);
 	$('.menu1').delay(8400).animate({
 		'opacity' : '1'
 	}, 500);
@@ -593,6 +626,7 @@ $(document).ready(function(){
 	$('.menu17').delay(10200).animate({
 		'opacity' : '1'
 	}, 500);
+	
 	
 });
 </script>
@@ -777,84 +811,50 @@ $(document).ready(function(){
 		$('#bgwrap').stop(true).css('display', 'none');
 	});
 	
-	$('.back1').hover(function() {
-		$('.back1').stop(true).animate({
+	$('.background-fixed').hover(function() {
+		$('.background-fixed').stop(true).animate({
 			'opacity' : '1'
 		}, 200);
 	}, function()
 	{
-		$('.back1').stop(true).animate({
+		$('.background-fixed').stop(true).animate({
 			'opacity' : '0.7'
 		}, 200);
 	});
-	
-	$('.back2').hover(function() {
-		$('.back2').stop(true).animate({
+	$('.background-fixed').click(function(){
+		$('#bgwrap').stop(true).css('display', 'none');
+		$('body').css('background-image', 'url(myimgs/background/bg_1.png)');
+	});
+
+
+	$('.characters1').hover(function() {
+		$('.characters1').stop(true).animate({
 			'opacity' : '1'
 		}, 200);
 	}, function()
 	{
-		$('.back2').stop(true).animate({
+		$('.characters1').stop(true).animate({
 			'opacity' : '0.7'
 		}, 200);
 	});
-	
-	$('.back3').hover(function() {
-		$('.back3').stop(true).animate({
+	$('.characters1').click(function(){
+		$('#bgwrap').stop(true).css('display', 'none');
+		document.getElementById("characters-image-id").src='myimgs/characters/lappland.png';
+	});
+
+	$('.characters2').hover(function() {
+		$('.characters2').stop(true).animate({
 			'opacity' : '1'
 		}, 200);
 	}, function()
 	{
-		$('.back3').stop(true).animate({
+		$('.characters2').stop(true).animate({
 			'opacity' : '0.7'
 		}, 200);
 	});
-	
-	$('.back4').hover(function() {
-		$('.back4').stop(true).animate({
-			'opacity' : '1'
-		}, 200);
-	}, function()
-	{
-		$('.back4').stop(true).animate({
-			'opacity' : '0.7'
-		}, 200);
-	});
-	
-	$('.back5').hover(function() {
-		$('.back5').stop(true).animate({
-			'opacity' : '1'
-		}, 200);
-	}, function()
-	{
-		$('.back5').stop(true).animate({
-			'opacity' : '0.7'
-		}, 200);
-	});
-	
-	$('.back1').click(function(){
+	$('.characters2').click(function(){
 		$('#bgwrap').stop(true).css('display', 'none');
-		$('body').css('background-image', 'url(myimgs/1.png)');
-	});
-	
-	$('.back2').click(function(){
-		$('#bgwrap').stop(true).css('display', 'none');
-		$('body').css('background-image', 'url(myimgs/2.png)');
-	});
-	
-	$('.back3').click(function(){
-		$('#bgwrap').stop(true).css('display', 'none');
-		$('body').css('background-image', 'url(myimgs/3.png)');
-	});
-	
-	$('.back4').click(function(){
-		$('#bgwrap').stop(true).css('display', 'none');
-		$('body').css('background-image', 'url(myimgs/4.png)');
-	});
-	
-	$('.back5').click(function(){
-		$('#bgwrap').stop(true).css('display', 'none');
-		$('body').css('background-image', 'url(myimgs/5.png)');
+		document.getElementById("characters-image-id").src='myimgs/characters/char2.png';
 	});
 });
 </script>
@@ -918,21 +918,23 @@ jQuery(function ($) {
     var supportsAudio = !!document.createElement('audio').canPlayType;
     if (supportsAudio) {
         var index = 0,
-            playing = false,
+            playing = true,
             mediaPath = './mysongs/',
             extension = '',
-            tracks = [{
+            tracks = [
+			{
                 "track": 1,
+                "name": "Void",
+                "length": "4:50",
+                "file": "Void"
+            },
+			{
+                "track": 2,
                 "name": "Starset - Monster",
                 "length": "3:03",
                 "file": "Arknights"
             },
-			{
-                "track": 2,
-                "name": "1",
-                "length": "0:00",
-                "file": "1"
-            },
+
 			{
                 "track": 3,
                 "name": "2",
@@ -1073,6 +1075,8 @@ jQuery(function ($) {
 
 <script>
 $(document).ready(function(){
+	var audio_variable = document.getElementById("audio1"); 
+ 	audio_variable.play(); 
 	$('.menu11').click(function()
 	{
 		$('.container').stop(true).toggleClass('container-block');
@@ -1145,7 +1149,7 @@ $(document).ready(function(){
 <div id="wrap">
 	<div id="opwrap">
 		<div class="opening">
-			<img class="opbg1" src="myimgs/intro.png" />
+			<img class="opbg1" src="myimgs/arknights-loading.jpg" />
 			<div class="twrap">
 				<img class="t1" src="myimgs/title1.png">
 				<img class="t2" src="myimgs/title2.png">
@@ -1204,6 +1208,9 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div id="leftwrap">
+		<div class="characters-image-div">
+			<img class="characters-image" id="characters-image-id" src="myimgs/characters/lappland.png" />
+		</div>
 		<div class="menu9">
 			<div id="slideshow">
 				<img src="myimgs/news 1.png" />
@@ -1227,28 +1234,17 @@ $(document).ready(function(){
 		<div class="menu12">
 			<img class="img12" src="myimgs/group 22 (2).png" />
 		</div>
-		<!-- <div class="menu13">
-			<img class="img13" src="myimgs/group 24.png" />
-		</div> -->
 		<div class="menu14">
 			<img class="img14" src="myimgs/group 23.png" />
 		</div>
 		<div class="menu15">
 			<img class="img15" src="myimgs/group 26.png" />
 		</div>
-		<!-- <div class="menu17">
-			<img class="kor" src="myimgs/Kor.png" />
-			<img class="eng" src="myimgs/Eng.png" />
-			<img class="shape1" src="myimgs/shape 14.png" />
-		</div> -->
 	</div>
 	<div id="bgwrap">
 		<div id="backbg"></div>
-		<img class="back1" src="myimgs/1.png" />
-		<img class="back2" src="myimgs/2.png" />
-		<img class="back3" src="myimgs/3.png" />
-		<img class="back4" src="myimgs/4.png" />
-		<img class="back5" src="myimgs/5.png" />
+		<img class="characters1" src="myimgs/characters/lappland-logo.png" />
+		<img class="characters2" src="myimgs/characters/char2-logo.png" />
 	</div>
 		<div class="container">
 				<div class="column add-bottom">
@@ -1258,7 +1254,7 @@ $(document).ready(function(){
 							<span class="right" id="npTitle"></span>
 						</div>
 						<div id="audiowrap">
-							<div id="audio0">
+							<div id="audio0">						  
 								<audio preload id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
 							</div>
 						 
